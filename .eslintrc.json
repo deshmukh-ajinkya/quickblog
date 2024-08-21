@@ -1,0 +1,91 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "next",
+    "prettier",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["prettier", "react", "react-hooks", "@typescript-eslint", "import", "jest"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "max-lines": [
+      "error",
+      {
+        "max": 500,
+        "skipComments": true,
+        "skipBlankLines": true
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "quotes": ["off", "single"],
+    "semi": ["warn", "always"],
+    "complexity": ["error", 5],
+    "@typescript-eslint/no-explicit-any": "error",
+    "no-empty": "warn",
+    "no-console": "error",
+    "no-unused-vars": "off",
+    "no-unused-expressions": "error",
+    "react/jsx-runtime": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-undef": "error",
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "import/no-unused-modules": "error",
+    "prefer-const": "error",
+    "no-shadow": "error",
+    "no-debugger": "error",
+    "object-curly-spacing": ["error", "always"],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".jsx", ".tsx"]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "pathGroups": [
+          {
+            "pattern": "**/*.css",
+            "group": "index",
+            "position": "after"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+/* Desktop View */
+.private-root-container {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: 200px 1fr;
+  height: 100vh;
+}
+
+.header-logo-image {
+  width: 150px;
+  height: auto;
+  grid-row: 1/2;
+  grid-column: 1/2;
+  align-self: center;
+  margin: 1rem;
+}
+
+.header-search-input {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  max-width: 300px;
+  align-self: center;
+  & .MuiTextField-root {
+    margin-inline: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.header-icons {
+  grid-row: 1/2;
+  grid-column: 3/4;
+  display: flex;
+  gap: 1rem;
+  justify-self: right;
+  align-items: center;
+  margin: 1rem;
+}
+
+.children-content {
+  grid-row: 3/4;
+  grid-column: 2/4;
+  display: grid;
+  overflow: auto;
+  height: 100%;
+  scrollbar-width: none;
+  grid-template-columns: 9fr 1fr;
+  grid-template-rows: auto;
+}
+
+.navigation {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  padding-inline: 1rem;
+}
+
+.navigation-item-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  .private-root-container {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .header-logo-image {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    width: 120px;
+  }
+
+  .header-search-input {
+    grid-row: 2;
+    grid-column: 1/3;
+    max-width: 100%;
+    &.MuiTextField-root {
+      margin-inline: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .header-icons {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .children-content {
+    grid-row: 3;
+    grid-column: 1/3;
+    overflow-y: auto;
+    padding-bottom: 4rem;
+  }
+
+  .navigation {
+    grid-row: 4;
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-top: none;
+    padding-block: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .navigation-item-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+    margin: auto;
+  }
+
+  .navigation-item-icon {
+    &.MuiSvgIcon-root {
+      width: 0.8em;
+      height: auto;
+    }
+  }
+
+  .navigation-item-label {
+    &.MuiTypography-root {
+      font-size: 0.8em;
+    }
+  }
+}

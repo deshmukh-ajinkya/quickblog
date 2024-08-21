@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../../public/fonts/noto_sans/noto-sans-normal.woff2') format('woff2');
+  font-weight: 300;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Noto Sans', sans-serif;
+  color: #008ae6;
+}
+
+html,
+#__next {
+  height: 100%; /* Ensure full height for html and root container */
+}

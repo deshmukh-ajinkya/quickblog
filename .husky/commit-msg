@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# commit message input string
+MESSAGE=$(cat $1)
+# list of valid commit type
+COMMITFORMAT="^(feat|fix|docs|style|refactor|test|chore|perf|build|ci|revert): .{1,255}$"
+
+if ! echo "$MESSAGE" | grep -Eq "$COMMITFORMAT"; then
+    bold=$(tput bold)
+    echo ""
+    echo "🛑 ${bold}Please follow standard commit format 🛑"
+    echo ""
+    normal=$(tput sgr0)
+    echo "👉 ${normal}SAMPLE FORMAT :  git commit -m 'feat: this is new feature'"
+    echo ""
+    echo "ℹ️  DESCRIPTION   :  Start with valid type followed by colon space then description"
+    echo ""
+    echo "📢 VALID TYPE    :  [feat|fix|docs|style|refactor|test|chore|perf|build|ci|revert]"
+    echo ""
+    echo "🔔 Please correct it and commit again❗"
+    echo ""
+    exit 1
+fi
+
+echo ""
+echo "🆗 Commit Successful ✅"
+exit 0
