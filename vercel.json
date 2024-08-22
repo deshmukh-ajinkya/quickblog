@@ -11,7 +11,9 @@
     "silent": false,
     "deployments": {
       "production": {
-        "branches": ["main"]
+        "branches": [
+          "main"
+        ]
       },
       "preview": {
         "branches": []
@@ -19,6 +21,6 @@
     }
   },
   "git": {
-    "deploymentEnabled": false
+    "deploymentEnabled": true
   }
 }
