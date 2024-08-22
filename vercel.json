@@ -11,9 +11,7 @@
     "silent": false,
     "deployments": {
       "production": {
-        "branches": [
-          "main"
-        ]
+        "branches": ["main"]
       },
       "preview": {
         "branches": []
