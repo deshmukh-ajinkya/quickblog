@@ -7,9 +7,11 @@
   ],
   "github": {
     "enabled": true,
-    "autoJobCancelation": {
-      "enabled": true
-    },
-    "productionBranch": "main"
-  }
+    "productionBranch": "main",
+    "deploymentEnabled": {
+      "main": true,
+      "*": false
+    }
+  },
+  "disablePreviewDeployment": true
 }
