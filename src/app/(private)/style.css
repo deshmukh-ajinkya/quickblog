@@ -34,6 +34,7 @@
   justify-self: right;
   align-items: center;
   margin: 1rem;
+  cursor: pointer;
 }
 
 .children-content {
