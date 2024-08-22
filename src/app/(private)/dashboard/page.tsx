@@ -1,6 +1,5 @@
 'use client';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import StarsIcon from '@mui/icons-material/Stars';
 import { Box, MenuItem, Select, SelectChangeEvent, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
