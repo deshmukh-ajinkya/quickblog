@@ -16,7 +16,9 @@
         ]
       },
       "preview": {
-        "branches": []
+        "branches": [
+          "none"
+        ]
       }
     }
   },
