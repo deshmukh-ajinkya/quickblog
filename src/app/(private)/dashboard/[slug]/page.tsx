@@ -20,7 +20,7 @@ const BlogDetail: React.FC = () => {
       <Typography variant="h6">{data.title}</Typography>
       <Typography variant="h6">{data.description}</Typography>
       <Image src={data.image} alt={data.title} style={{ width: 250, height: 'auto' }} />
-      <Box>Comments</Box>
+      <Box>Comment Section</Box>
       <Typography>Like Count</Typography>
       <Image src={Like} alt="like" width={20} />
       <TextField size="small" />
