@@ -17,6 +17,9 @@
         "branches": [
           "main"
         ]
+      },
+      "preview": {
+        "branches": []
       }
     }
   },
