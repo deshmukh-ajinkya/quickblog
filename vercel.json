@@ -1,23 +1,26 @@
 {
-    "builds": [
-        {
-            "src": "package.json",
-            "use": "@vercel/next"
-        }
-    ],
-    "github": {
-        "enabled": true,
-        "autoJobCancelation": true,
-        "silent": false,
-        "deployments": {
-            "production": {
-                "branches": [
-                    "main"
-                ]
-            },
-            "preview": {
-                "branches": []
-            }
-        }
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
     }
+  ],
+  "github": {
+    "enabled": true,
+    "autoJobCancelation": true,
+    "silent": false,
+    "deployments": {
+      "production": {
+        "branches": [
+          "main"
+        ]
+      },
+      "preview": {
+        "branches": []
+      }
+    }
+  },
+  "git": {
+    "deploymentEnabled": false
+  }
 }
