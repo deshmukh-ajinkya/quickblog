@@ -2,10 +2,11 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Box, MenuItem, Select, SelectChangeEvent, Typography } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { blogData } from '@/mock/blogData';
-import './style.css';
 import Like from '../../../../public/thumbs-up.svg';
+import './style.css';
 
 function Dashboard(): React.ReactNode {
   const [category, setCategory] = React.useState<number>(1);
@@ -13,6 +14,7 @@ function Dashboard(): React.ReactNode {
   const handleChange = (event: SelectChangeEvent): void => {
     setCategory(Number(event.target.value));
   };
+
   return (
     <Box className="dashboard-root-container">
       <Typography className="dashboard-heading">Dashboard</Typography>
@@ -27,7 +29,10 @@ function Dashboard(): React.ReactNode {
       </Select>
       <Box className="dashboard-blog-container">
         {blogData.slice(0, 10).map((blog, index) => (
-          <Box key={index} className="dashboard-blog-card-wrapper">
+          <Link
+            className="dashboard-blog-card-wrapper"
+            href={`/dashboard/${encodeURIComponent(blog.title.toLowerCase().replace(/\s+/g, '-'))}`}
+            key={index}>
             <Image
               src={blog.image}
               alt="Banner"
@@ -44,7 +49,7 @@ function Dashboard(): React.ReactNode {
               <Typography className="dashboard-user-info-title">{blog.user.likes}</Typography>
               <Image src={Like} alt="like" width={20} className="dashboard-user-like-icon" />
             </Box>
-          </Box>
+          </Link>
         ))}
       </Box>
     </Box>

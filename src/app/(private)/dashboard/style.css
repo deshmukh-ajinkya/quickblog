@@ -32,12 +32,15 @@
 .dashboard-blog-card-wrapper {
   display: grid;
   grid-template-columns: auto 1fr;
-  padding: 1rem;
+  padding: 0.6rem;
   border: 1px solid #008ae6;
   border-radius: 8px;
   gap: 0.5rem;
   width: fit-content;
+  height: 100%;
   transition: box-shadow 0.3s ease; /* Smooth transition */
+  text-decoration: none;
+  color: #008ae6;
 }
 
 .dashboard-blog-card-wrapper:hover {
