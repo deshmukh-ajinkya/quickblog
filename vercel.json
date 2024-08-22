@@ -16,12 +16,16 @@
       "production": {
         "branches": [
           "main"
-        ]
-      },
-      "preview": {
-        "branches": []
+        ],
+        "autoDeploy": true
       }
-    }
+    },
+    "ignoreBuilds": [
+      "*/**"
+    ],
+    "include": [
+      "main"
+    ]
   },
   "git": {
     "deploymentEnabled": true
