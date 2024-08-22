@@ -2,7 +2,10 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next"
+      "use": "@vercel/next",
+      "config": {
+        "production": true
+      }
     }
   ],
   "github": {
@@ -13,11 +16,6 @@
       "production": {
         "branches": [
           "main"
-        ]
-      },
-      "preview": {
-        "branches": [
-          "none"
         ]
       }
     }
