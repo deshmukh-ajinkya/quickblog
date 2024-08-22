@@ -18,13 +18,13 @@
           "main"
         ],
         "autoDeploy": true
+      },
+      "preview": {
+        "branches": []
       }
     },
     "ignoreBuilds": [
-      "*/**"
-    ],
-    "include": [
-      "main"
+      "*"
     ]
   },
   "git": {
