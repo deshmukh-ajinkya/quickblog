@@ -2,32 +2,14 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next",
-      "config": {
-        "production": true
-      }
+      "use": "@vercel/next"
     }
   ],
   "github": {
     "enabled": true,
-    "autoJobCancelation": true,
-    "silent": false,
-    "deployments": {
-      "production": {
-        "branches": [
-          "main"
-        ],
-        "autoDeploy": true
-      },
-      "preview": {
-        "branches": []
-      }
+    "autoJobCancelation": {
+      "enabled": true
     },
-    "ignoreBuilds": [
-      "*"
-    ]
-  },
-  "git": {
-    "deploymentEnabled": true
+    "productionBranch": "main"
   }
 }
