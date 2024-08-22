@@ -6,6 +6,7 @@ import Image from 'next/image';
 import React from 'react';
 import { blogData } from '@/mock/blogData';
 import './style.css';
+import Like from '../../../../public/thumbs-up.svg';
 
 function Dashboard(): React.ReactNode {
   const [category, setCategory] = React.useState<number>(1);
@@ -42,7 +43,7 @@ function Dashboard(): React.ReactNode {
             </Box>
             <Box className="dashboard-blog-user-like">
               <Typography className="dashboard-user-info-title">{blog.user.likes}</Typography>
-              <StarsIcon color="primary" className="dashboard-user-info-icon" />
+              <Image src={Like} alt="like" width={20} className="dashboard-user-like-icon" />
             </Box>
           </Box>
         ))}
