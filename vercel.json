@@ -8,8 +8,5 @@
   "github": {
     "enabled": true,
     "productionBranch": "main"
-  },
-  "deployments": {
-    "preview": false
   }
 }
