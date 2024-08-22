@@ -1,20 +1,18 @@
 {
-    "ignoreBuildStep": [
-        {
-            "when": {
-                "branch": {
-                    "in": [
-                        "main"
-                    ]
-                }
-            },
-            "build": false
+  "ignoreBuildStep": [
+    {
+      "when": {
+        "branch": {
+          "notIn": ["main"]
         }
-    ],
-    "builds": [
-        {
-            "src": "package.json",
-            "use": "@vercel/static-build"
-        }
-    ]
+      },
+      "build": false
+    }
+  ],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build"
+    }
+  ]
 }
