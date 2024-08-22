@@ -11,7 +11,7 @@ This is a digital platform where you can share your thoughts, ideas, experiences
 | _Typescript_        | Code readability        |
 | _Next.js_           | Frontend framework      |
 | _TsNode_            | Runtime environment     |
-| _Material UI_       | Components styling      |
+| _Material UI_       | Components style        |
 | _Redux_             | Global state management |
 | _Auth0_             | Authentication          |
 | _Joi_               | Data Validation         |
