@@ -7,11 +7,9 @@
   ],
   "github": {
     "enabled": true,
-    "productionBranch": "main",
-    "deploymentEnabled": {
-      "main": true,
-      "*": false
-    }
+    "productionBranch": "main"
   },
-  "disablePreviewDeployment": true
+  "deployments": {
+    "preview": false
+  }
 }
