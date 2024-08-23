@@ -32,8 +32,10 @@ const BlogDetail: React.FC = () => {
 
   const handleSendComment = (): void => {
     if (comment.trim()) {
-      setComments([...comments, { sender: 'You', text: comment }]);
+      setComments((prevComments) => [...prevComments, { sender: 'You', text: comment }]);
       setComment('');
+
+      // Instead of immediate update, you could handle it differently if needed
       setTimeout(() => {
         setComments((prevComments) => [
           ...prevComments,
