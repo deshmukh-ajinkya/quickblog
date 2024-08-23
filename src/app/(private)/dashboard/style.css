@@ -4,14 +4,15 @@
   grid-template-rows: min-content auto;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  padding-inline: 1rem;
   padding-bottom: 1rem;
+  padding-right: 1rem;
 }
 
 .dashboard-heading {
   align-content: center;
   &.MuiTypography-root {
     font-size: 24px;
+    color: #008ae6;
   }
 }
 
@@ -91,7 +92,7 @@
 
 @media (max-width: 600px) {
   .dashboard-root-container {
-    padding-block: 1rem;
+    padding-inline: 1rem;
   }
   .dashboard-select-category {
     width: 150px;

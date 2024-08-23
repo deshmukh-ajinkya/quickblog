@@ -18,7 +18,7 @@ import './style.css';
 const privatePaths = [
   { title: 'Dashboard', icon: WindowIcon, url: '/dashboard' },
   { title: 'Blog', icon: NoteAltIcon, url: '/blog' },
-  { title: 'Analytic', icon: AssessmentIcon, url: '/analytic' },
+  { title: 'Insight', icon: AssessmentIcon, url: '/insight' },
   { title: 'Support', icon: ContactSupportIcon, url: '/support' }
 ];
 

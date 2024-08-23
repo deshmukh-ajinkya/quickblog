@@ -1,0 +1,34 @@
+.insight-root-container {
+  grid-column: span 2;
+  height: calc(100vh - 5rem);
+  display: grid;
+  gap: 0.5rem;
+  grid-template-rows: min-content min-content 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+}
+
+.charts-container {
+  display: grid;
+  grid-row: 2/5;
+  grid-column: 2/3;
+  grid-template-rows: 1fr 1fr;
+}
+
+.section-heading {
+  &.MuiTypography-root {
+    font-size: small;
+    color: #008ae6;
+  }
+}
+
+@media (width<= 600px) {
+  .insight-root-container {
+    display: unset;
+    padding-inline: 1rem;
+  }
+  .charts-container {
+    display: unset;
+  }
+}
