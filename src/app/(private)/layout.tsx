@@ -1,7 +1,7 @@
 'use client';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import EditIcon from '@mui/icons-material/Edit';
+import MailIcon from '@mui/icons-material/Mail';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import WindowIcon from '@mui/icons-material/Window';
@@ -22,36 +22,36 @@ import React, { BaseSyntheticEvent, ChangeEvent, useState } from 'react';
 import { CustomTheme } from '@/components';
 import { INavigationItem } from '@/interface';
 import Logo from '../../../public/icon.png';
+import User from '../../../public/user.png';
 import './style.css';
 
 const privatePaths = [
-  { title: 'Create', icon: NoteAltIcon, url: '/blog' },
   { title: 'Explore', icon: WindowIcon, url: '/dashboard' },
+  { title: 'Create', icon: NoteAltIcon, url: '/blog' },
   { title: 'Insight', icon: AssessmentIcon, url: '/insight' }
 ];
 
 function Private({ children }: { children: React.ReactNode }): React.ReactNode {
   const router = useRouter();
   const pathname = usePathname();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null); // State for Menu
-  const [email, setEmail] = React.useState('user@example.com'); // State for email
-  const [mobile, setMobile] = React.useState('123-456-7890'); // State for mobile
-  const [isEditing, setIsEditing] = useState<{ email: boolean; mobile: boolean }>({
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [email, setEmail] = React.useState('user@example.com');
+  const [name, setName] = React.useState('John Doe');
+  const [isEditing, setIsEditing] = useState<{ email: boolean; name: boolean }>({
     email: false,
-    mobile: false
-  }); // State for edit mode
-  const [, setIsItemSelected] = React.useState(() => {
+    name: false
+  });
+  const [selectedItem, setSelectedItem] = React.useState(() => {
     const initialSelected = privatePaths.find((item) => item.url === pathname);
-    return initialSelected?.title || privatePaths[0].title;
+    return initialSelected?.title || 'Explore';
   });
 
-  const handleNavigation = React.useMemo(
-    () =>
-      (item: INavigationItem): void => {
-        setIsItemSelected(item.title);
-        router.push(item.url);
-      },
-    [setIsItemSelected, router]
+  const handleNavigation = React.useCallback(
+    (item: INavigationItem): void => {
+      setSelectedItem(item.title);
+      router.push(item.url);
+    },
+    [router]
   );
 
   const handleMenuOpen = (event: BaseSyntheticEvent): void => {
@@ -66,15 +66,14 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
     setEmail(event.target.value);
   };
 
-  const handleMobileChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    setMobile(event.target.value);
+  const handleNameChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    setName(event.target.value);
   };
 
-  const toggleEditMode = (field: 'email' | 'mobile'): void => {
+  const toggleEditMode = (field: 'email' | 'name'): void => {
     setIsEditing((prev) => ({ ...prev, [field]: !prev[field] }));
   };
 
-  // Responsive styling
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -95,62 +94,73 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
       />
       <Box className="header-icons">
         <CustomTheme />
-        <AccountCircleIcon
-          color="secondary"
-          fontSize="large"
-          onClick={handleMenuOpen} // Open menu on click
-          sx={{ cursor: 'pointer' }} // Add cursor pointer style
+        <Image
+          src={User}
+          alt="user"
+          onClick={handleMenuOpen}
+          style={{
+            height: 'auto',
+            marginRight: '1rem',
+            cursor: 'pointer',
+            width: '2rem'
+          }}
         />
       </Box>
 
-      {/* Account Menu */}
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleMenuClose}
         MenuListProps={{
           sx: {
-            maxWidth: isMobile ? '100%' : 240, // Adjust menu width for mobile
+            maxWidth: isMobile ? '100%' : 240,
             width: isMobile ? '100%' : 'auto'
           }
         }}
         className="account-menu">
+        <MenuItem sx={{ cursor: 'pointer' }}></MenuItem>
         <MenuItem sx={{ cursor: 'pointer' }}>
           <Box component="div" display="flex" alignItems="center" width="100%">
-            {isEditing.email ? (
+            <Image
+              src={User}
+              alt="user"
+              style={{ width: '24px', height: 'auto', marginRight: '1rem' }}
+            />
+            {isEditing.name ? (
               <TextField
-                value={email}
-                onChange={handleEmailChange}
+                value={name}
+                onChange={handleNameChange}
                 size="small"
                 variant="outlined"
-                fullWidth
+                sx={{ width: 150 }}
               />
             ) : (
-              <Typography variant="body2" component="span" sx={{ fontWeight: 'bold' }}>
-                {email}
+              <Typography variant="body2" component="span" sx={{ fontWeight: 'bold', width: 150 }}>
+                {name}
               </Typography>
             )}
-            <IconButton onClick={() => toggleEditMode('email')} size="small">
+            <IconButton onClick={() => toggleEditMode('name')} size="small">
               <EditIcon fontSize="small" />
             </IconButton>
           </Box>
         </MenuItem>
         <MenuItem sx={{ cursor: 'pointer' }}>
           <Box component="div" display="flex" alignItems="center" width="100%">
-            {isEditing.mobile ? (
+            <MailIcon color="primary" sx={{ marginRight: '1rem' }} />
+            {isEditing.email ? (
               <TextField
-                value={mobile}
-                onChange={handleMobileChange}
+                value={email}
+                onChange={handleEmailChange}
                 size="small"
                 variant="outlined"
-                fullWidth
+                sx={{ width: 150 }}
               />
             ) : (
-              <Typography variant="body2" component="span" sx={{ fontWeight: 'bold' }}>
-                {mobile}
+              <Typography variant="body2" component="span" sx={{ fontWeight: 'bold', width: 150 }}>
+                {email}
               </Typography>
             )}
-            <IconButton onClick={() => toggleEditMode('mobile')} size="small">
+            <IconButton onClick={() => toggleEditMode('email')} size="small">
               <EditIcon fontSize="small" />
             </IconButton>
           </Box>
@@ -161,7 +171,7 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
       <Box className="navigation">
         {privatePaths.map((item, index) => (
           <Box
-            className="navigation-item-wrapper"
+            className={`navigation-item-wrapper ${item.title === selectedItem ? 'selected' : ''}`}
             key={index}
             onClick={() => handleNavigation(item)}>
             <item.icon fontSize="large" color="primary" className="navigation-item-icon" />
