@@ -20,7 +20,7 @@ function Blog(): React.ReactElement {
         height: 'calc(100vh - 5rem)'
       }}>
       <Typography color="primary" sx={{ gridRow: '1', gridColumn: 'span 2', fontSize: '24px' }}>
-        Blog
+        Create
       </Typography>
 
       <Box

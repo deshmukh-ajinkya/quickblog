@@ -14,8 +14,8 @@ import Logo from '../../../public/icon.png';
 import './style.css';
 
 const privatePaths = [
-  { title: 'Dashboard', icon: WindowIcon, url: '/dashboard' },
-  { title: 'Blog', icon: NoteAltIcon, url: '/blog' },
+  { title: 'Create', icon: NoteAltIcon, url: '/blog' },
+  { title: 'Explore', icon: WindowIcon, url: '/dashboard' },
   { title: 'Insight', icon: AssessmentIcon, url: '/insight' }
 ];
 

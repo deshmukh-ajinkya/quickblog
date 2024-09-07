@@ -17,7 +17,7 @@ function Dashboard(): React.ReactNode {
 
   return (
     <Box className="dashboard-root-container">
-      <Typography className="dashboard-heading">Dashboard</Typography>
+      <Typography className="dashboard-heading">Explore</Typography>
       <Select
         name="select-category"
         className="dashboard-select-category"
