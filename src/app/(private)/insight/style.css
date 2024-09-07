@@ -4,7 +4,7 @@
   display: grid;
   gap: 0.5rem;
   grid-template-rows: min-content min-content 1fr 1fr;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1f 9fr;
   padding-bottom: 1rem;
   padding-right: 1rem;
 }

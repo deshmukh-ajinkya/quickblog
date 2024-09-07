@@ -1,9 +1,7 @@
 'use client';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AssessmentIcon from '@mui/icons-material/Assessment';
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import WindowIcon from '@mui/icons-material/Window';
 import { Box, InputAdornment, TextField, Typography } from '@mui/material';
@@ -18,8 +16,7 @@ import './style.css';
 const privatePaths = [
   { title: 'Dashboard', icon: WindowIcon, url: '/dashboard' },
   { title: 'Blog', icon: NoteAltIcon, url: '/blog' },
-  { title: 'Insight', icon: AssessmentIcon, url: '/insight' },
-  { title: 'Support', icon: ContactSupportIcon, url: '/support' }
+  { title: 'Insight', icon: AssessmentIcon, url: '/insight' }
 ];
 
 function Private({ children }: { children: React.ReactNode }): React.ReactNode {
@@ -56,7 +53,6 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
       />
       <Box className="header-icons">
         <CustomTheme />
-        <NotificationsIcon color="primary" />
         <AccountCircleIcon color="secondary" fontSize="large" />
       </Box>
       <Box className="children-content">{children}</Box>
