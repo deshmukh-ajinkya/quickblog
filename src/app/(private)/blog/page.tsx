@@ -1,8 +1,12 @@
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import DeleteIcon from '@mui/icons-material/Delete';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import { Box, MenuItem, Select, TextField, Typography } from '@mui/material';
+import Image from 'next/image';
 import React from 'react';
+import ReactImg from '../../../../public/react.png'; // Replace with your image path
+import Like from '../../../../public/thumbs-up.svg';
 
 function Blog(): React.ReactElement {
   return (
@@ -78,9 +82,32 @@ function Blog(): React.ReactElement {
           gridRow: 'span 3',
           gridColumn: '2 / 3',
           overflow: 'auto',
-          height: '100%'
+          height: 'max-content',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px,auto))',
+          gap: 1,
+          scrollbarWidth: 'none',
+          paddingRight: '1rem'
         }}>
-        <Box>Card1</Box>
+        <Box sx={{ border: '1px solid gray', borderRadius: '4px', padding: '0.5rem' }}>
+          <Image
+            src={ReactImg}
+            alt="Banner"
+            style={{ borderRadius: '12px 12px 0px 0px', width: '100%', height: 'auto' }}
+          />
+          <Typography>Title</Typography>
+          <Typography>Description</Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <AccountCircleIcon color="secondary" className="dashboard-user-info-icon" />
+              <Typography>User 1</Typography>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Image src={Like} alt="like" width={20} className="dashboard-user-like-icon" />
+              <Typography>2.5k</Typography>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
