@@ -94,17 +94,7 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
       />
       <Box className="header-icons">
         <CustomTheme />
-        <Image
-          src={User}
-          alt="user"
-          onClick={handleMenuOpen}
-          style={{
-            height: 'auto',
-            marginRight: '1rem',
-            cursor: 'pointer',
-            width: '2rem'
-          }}
-        />
+        <Image src={User} alt="user" onClick={handleMenuOpen} className="user-profile-icon" />
       </Box>
 
       <Menu
@@ -170,7 +160,7 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
       <Box className="navigation">
         {privatePaths.map((item, index) => (
           <Box
-            className={`navigation-item-wrapper ${item.title === selectedItem ? 'selected' : ''}`}
+            className="navigation-item-wrapper"
             key={index}
             onClick={() => handleNavigation(item)}>
             <item.icon fontSize="large" color="primary" className="navigation-item-icon" />

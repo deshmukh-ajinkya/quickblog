@@ -37,6 +37,12 @@
   cursor: pointer;
 }
 
+.user-profile-icon {
+  height: auto;
+  cursor: pointer;
+  width: 2rem;
+}
+
 .children-content {
   grid-row: 3/4;
   grid-column: 2/4;
@@ -65,7 +71,7 @@
 }
 
 /* Mobile View */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .private-root-container {
     display: grid;
     grid-template-rows: auto auto 1fr auto;
