@@ -118,7 +118,6 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
           }
         }}
         className="account-menu">
-        <MenuItem sx={{ cursor: 'pointer' }}></MenuItem>
         <MenuItem sx={{ cursor: 'pointer' }}>
           <Box component="div" display="flex" alignItems="center" width="100%">
             <Image
