@@ -77,7 +77,7 @@ function Blog(): React.ReactElement {
               <Typography>2.5k</Typography>
             </Box>
           </Box>
-        </Box>{' '}
+        </Box>
         <Box className="blog-content-box">
           <Image src={ReactImg} alt="Banner" className="blog-image" />
           <Typography>Title</Typography>
@@ -92,7 +92,7 @@ function Blog(): React.ReactElement {
               <Typography>2.5k</Typography>
             </Box>
           </Box>
-        </Box>{' '}
+        </Box>
         <Box className="blog-content-box">
           <Image src={ReactImg} alt="Banner" className="blog-image" />
           <Typography>Title</Typography>

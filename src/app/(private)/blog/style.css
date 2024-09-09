@@ -8,14 +8,12 @@
   padding-inline: 1rem;
 }
 
-/* Blog Heading */
 .blog-heading {
   grid-row: 1;
   grid-column: span 2;
   font-size: 24px;
 }
 
-/* Blog Grid Container */
 .blog-grid-container {
   grid-row: 2;
   display: inherit;
@@ -24,7 +22,6 @@
   gap: 1rem;
 }
 
-/* Blog Icon Container */
 .blog-icon-container {
   border: 1px solid gray;
   border-radius: 0.3rem;
@@ -33,23 +30,19 @@
   align-items: center;
 }
 
-/* Blog Select Container */
 .blog-select-container {
   display: grid;
 }
 
-/* Blog Select */
 .blog-select {
   min-width: 200px;
 }
 
-/* Blog Actions */
 .blog-actions {
   display: flex;
   justify-content: space-between;
 }
 
-/* Blog TextField */
 .blog-textfield {
   grid-row: 3;
 }
@@ -63,7 +56,6 @@
   overflow: auto !important;
 }
 
-/* Blog Content Container */
 .blog-content-container {
   grid-row: span 3;
   grid-column: 2 / 3;
@@ -72,30 +64,28 @@
   flex-direction: column;
   gap: 1rem;
   padding-right: 1rem;
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  height: calc(100% - 1rem);
 }
 
-/* Blog Content Box */
 .blog-content-box {
   border: 1px solid gray;
   border-radius: 4px;
   padding: 0.5rem;
-  min-width: 200px; /* Ensure each box has a minimum width */
+  min-width: 200px;
 }
 
 .blog-select-container {
   gap: 1rem;
 }
 
-/* Blog Image */
 .blog-image {
   border-radius: 12px 12px 0px 0px;
   width: 100%;
   height: auto;
 }
 
-/* Blog Info */
 .blog-info {
   display: flex;
   justify-content: space-between;
@@ -113,7 +103,6 @@
   gap: 0.5rem;
 }
 
-/* Responsive design for screens less than 900px */
 @media (width <= 900px) {
   .blog-root-container {
     grid-template-columns: 1fr;
@@ -151,6 +140,9 @@
   .blog-textfield {
     grid-row: auto;
     height: 50vh;
+    & .MuiOutlinedInput-root {
+      height: 98%;
+    }
   }
 
   .blog-content-container {
@@ -161,16 +153,17 @@
     overflow-x: auto;
     padding-right: 0;
     grid-row: 2;
+    height: 100%;
   }
 
   .blog-content-box {
-    max-width: 200px; /* Adjust as needed for visibility */
+    max-width: 200px;
     padding: 0.5rem;
     border-radius: 8px;
   }
 
   .blog-info {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     gap: 0.5rem;
   }

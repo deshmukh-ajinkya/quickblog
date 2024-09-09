@@ -64,10 +64,17 @@
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  padding: 0.2rem;
   align-items: center;
   :hover {
     cursor: pointer;
   }
+}
+.navigation-item-wrapper.selected {
+  background-color: rgba(0, 138, 230, 0.1);
+  border-radius: 4px;
+  padding: 0.2rem;
+  box-sizing: content-box;
 }
 
 /* Mobile View */

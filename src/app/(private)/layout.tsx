@@ -160,7 +160,7 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
       <Box className="navigation">
         {privatePaths.map((item, index) => (
           <Box
-            className="navigation-item-wrapper"
+            className={`navigation-item-wrapper ${selectedItem === item.title ? 'selected' : ''}`}
             key={index}
             onClick={() => handleNavigation(item)}>
             <item.icon fontSize="large" color="primary" className="navigation-item-icon" />
