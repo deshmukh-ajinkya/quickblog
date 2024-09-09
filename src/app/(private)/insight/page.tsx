@@ -120,6 +120,7 @@ function Insight(): React.ReactElement {
   ];
   return (
     <Box className="insight-root-container">
+      {/* <Typography>Insight</Typography> */}
       <Box className="date-container">
         <Typography color="primary" variant="h6">
           Date

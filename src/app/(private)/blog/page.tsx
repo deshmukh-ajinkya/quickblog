@@ -12,10 +12,6 @@ import './style.css'; // Import the new CSS file
 function Blog(): React.ReactElement {
   return (
     <Box className="blog-root-container">
-      <Typography color="primary" className="blog-heading">
-        Create
-      </Typography>
-
       <Box className="blog-grid-container">
         <Box className="blog-icon-container">
           <AddBoxIcon color="primary" />
@@ -39,7 +35,6 @@ function Blog(): React.ReactElement {
           </Box>
         </Box>
       </Box>
-
       <TextField
         fullWidth
         variant="outlined"

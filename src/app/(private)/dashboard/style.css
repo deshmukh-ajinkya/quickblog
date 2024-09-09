@@ -8,17 +8,10 @@
   padding-right: 1rem;
 }
 
-.dashboard-heading {
-  align-content: center;
-  &.MuiTypography-root {
-    font-size: 24px;
-    color: #008ae6;
-  }
-}
-
 .dashboard-select-category {
   width: 200px;
   justify-self: right;
+  grid-column: 2/3;
 }
 
 .dashboard-blog-container {
