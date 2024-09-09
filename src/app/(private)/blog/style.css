@@ -76,17 +76,12 @@
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
 
-.blog-content-container::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
-}
-
 /* Blog Content Box */
 .blog-content-box {
   border: 1px solid gray;
   border-radius: 4px;
   padding: 0.5rem;
   min-width: 200px; /* Ensure each box has a minimum width */
-  flex-shrink: 0; /* Prevent shrinking on small screens */
 }
 
 .blog-select-container {
@@ -133,7 +128,7 @@
 
   .blog-grid-container {
     grid-template-columns: 1fr;
-    gap: 0.5rem;
+    gap: 1rem;
     grid-row: 3;
   }
 
@@ -148,6 +143,9 @@
   .blog-actions {
     flex-direction: row;
     justify-content: end;
+    & .MuiSvgIcon-root {
+      margin-left: 1rem;
+    }
   }
 
   .blog-textfield {
