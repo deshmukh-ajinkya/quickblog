@@ -1,1 +1,1 @@
-export const privatePaths = ['/dashboard', '/analytics', '/blog', '/support'];
+export const privatePaths = ['/dashboard', '/insight', '/blog', '/support'];

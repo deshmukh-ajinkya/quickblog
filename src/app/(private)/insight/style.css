@@ -1,0 +1,128 @@
+.insight-root-container {
+  display: grid;
+  height: calc(100vh - 5rem);
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 10% 40% 50%;
+  gap: 1rem;
+  overflow: hidden;
+  grid-column: span 2;
+}
+
+.date-container {
+  grid-row: 1;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.like-chart-container {
+  grid-row: 2;
+  overflow: hidden;
+}
+
+.select-date {
+  &:hover {
+    cursor: pointer;
+  }
+  & .MuiOutlinedInput-root {
+    & fieldset {
+      border-color: #008ae6;
+    }
+    &:hover fieldset {
+      border-color: #008ae6;
+      cursor: pointer;
+    }
+    &.Mui-focused fieldset {
+      border-color: #008ae6;
+    }
+    color: #008ae6;
+  }
+  & .MuiInputLabel-root {
+    color: #008ae6;
+  }
+}
+
+.post-overview-container {
+  grid-row: 3;
+  max-height: calc(100% - 40px);
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.table-container {
+  max-height: calc(100vh - 15rem);
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.graph-container {
+  grid-row: span 3;
+  grid-column: 2/3;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.most-liked-graph,
+.count-graph {
+  width: 50vw;
+  height: 101%;
+  overflow: hidden;
+  position: relative;
+  bottom: 2rem;
+}
+
+canvas {
+  width: 100% !important;
+  height: calc(100% - 4px) !important;
+}
+
+@media (max-width: 900px) {
+  .insight-root-container {
+    display: inline;
+    height: auto;
+    grid-template-columns: none;
+    grid-template-rows: none;
+    gap: 1rem;
+    overflow: auto;
+    padding-inline: 1rem;
+  }
+
+  .date-container {
+    padding-bottom: 1rem;
+  }
+
+  .date-container,
+  .like-chart-container,
+  .post-overview-container,
+  .graph-container {
+    grid-row: unset;
+    width: 100%; /* Ensure full width for each container */
+  }
+
+  .like-chart-container,
+  .post-overview-container,
+  .graph-container {
+    height: auto; /* Let the height adjust automatically */
+    padding-top: 1rem;
+  }
+
+  .most-liked-graph,
+  .count-graph {
+    width: 100%; /* Ensure charts take full width on mobile */
+    height: auto;
+    position: relative;
+    bottom: 2rem;
+  }
+
+  .most-liked-graph,
+  .count-graph,
+  .liked-chart {
+    position: static;
+    bottom: unset;
+  }
+
+  .table-container {
+    max-height: 50vh; /* Adjust to avoid overflowing */
+  }
+}
