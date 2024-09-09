@@ -11,11 +11,35 @@
 .date-container {
   grid-row: 1;
   overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .like-chart-container {
   grid-row: 2;
   overflow: hidden;
+}
+
+.select-date {
+  &:hover {
+    cursor: pointer;
+  }
+  & .MuiOutlinedInput-root {
+    & fieldset {
+      border-color: #008ae6;
+    }
+    &:hover fieldset {
+      border-color: #008ae6;
+      cursor: pointer;
+    }
+    &.Mui-focused fieldset {
+      border-color: #008ae6;
+    }
+    color: #008ae6;
+  }
+  & .MuiInputLabel-root {
+    color: #008ae6;
+  }
 }
 
 .post-overview-container {
@@ -61,7 +85,11 @@ canvas {
     grid-template-rows: none;
     gap: 1rem;
     overflow: auto;
-    padding: 1rem;
+    padding-inline: 1rem;
+  }
+
+  .date-container {
+    padding-bottom: 1rem;
   }
 
   .date-container,

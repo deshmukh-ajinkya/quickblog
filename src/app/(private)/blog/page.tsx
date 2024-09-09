@@ -9,6 +9,38 @@ import ReactImg from '../../../../public/react.png';
 import Like from '../../../../public/thumbs-up.svg';
 import './style.css'; // Import the new CSS file
 
+// Sample blog data
+const blogData = [
+  {
+    id: 1,
+    title: 'Title 1',
+    description: 'Description 1',
+    user: 'User 1',
+    likes: '2.5k'
+  },
+  {
+    id: 2,
+    title: 'Title 2',
+    description: 'Description 2',
+    user: 'User 2',
+    likes: '3.0k'
+  },
+  {
+    id: 3,
+    title: 'Title 3',
+    description: 'Description 3',
+    user: 'User 3',
+    likes: '1.5k'
+  },
+  {
+    id: 4,
+    title: 'Title 4',
+    description: 'Description 4',
+    user: 'User 4',
+    likes: '4.0k'
+  }
+];
+
 function Blog(): React.ReactElement {
   return (
     <Box className="blog-root-container">
@@ -43,66 +75,23 @@ function Blog(): React.ReactElement {
         className="blog-textfield"
       />
       <Box className="blog-content-container">
-        <Box className="blog-content-box">
-          <Image src={ReactImg} alt="Banner" className="blog-image" />
-          <Typography>Title</Typography>
-          <Typography>Description</Typography>
-          <Box className="blog-info">
-            <Box className="blog-user-info">
-              <AccountCircleIcon color="secondary" className="dashboard-user-info-icon" />
-              <Typography>User 1</Typography>
-            </Box>
-            <Box className="blog-like-info">
-              <Image src={Like} alt="like" width={20} className="dashboard-user-like-icon" />
-              <Typography>2.5k</Typography>
-            </Box>
-          </Box>
-        </Box>
-        <Box className="blog-content-box">
-          <Image src={ReactImg} alt="Banner" className="blog-image" />
-          <Typography>Title</Typography>
-          <Typography>Description</Typography>
-          <Box className="blog-info">
-            <Box className="blog-user-info">
-              <AccountCircleIcon color="secondary" className="dashboard-user-info-icon" />
-              <Typography>User 1</Typography>
-            </Box>
-            <Box className="blog-like-info">
-              <Image src={Like} alt="like" width={20} className="dashboard-user-like-icon" />
-              <Typography>2.5k</Typography>
+        {blogData.map((blog) => (
+          <Box key={blog.id} className="blog-content-box">
+            <Image src={ReactImg} alt="Banner" className="blog-image" />
+            <Typography color="primary">{blog.title}</Typography>
+            <Typography color="primary">{blog.description}</Typography>
+            <Box className="blog-info">
+              <Box className="blog-user-info">
+                <AccountCircleIcon color="secondary" className="dashboard-user-info-icon" />
+                <Typography color="primary">{blog.user}</Typography>
+              </Box>
+              <Box className="blog-like-info">
+                <Image src={Like} alt="like" width={20} className="dashboard-user-like-icon" />
+                <Typography color="primary">{blog.likes}</Typography>
+              </Box>
             </Box>
           </Box>
-        </Box>
-        <Box className="blog-content-box">
-          <Image src={ReactImg} alt="Banner" className="blog-image" />
-          <Typography>Title</Typography>
-          <Typography>Description</Typography>
-          <Box className="blog-info">
-            <Box className="blog-user-info">
-              <AccountCircleIcon color="secondary" className="dashboard-user-info-icon" />
-              <Typography>User 1</Typography>
-            </Box>
-            <Box className="blog-like-info">
-              <Image src={Like} alt="like" width={20} className="dashboard-user-like-icon" />
-              <Typography>2.5k</Typography>
-            </Box>
-          </Box>
-        </Box>
-        <Box className="blog-content-box">
-          <Image src={ReactImg} alt="Banner" className="blog-image" />
-          <Typography>Title</Typography>
-          <Typography>Description</Typography>
-          <Box className="blog-info">
-            <Box className="blog-user-info">
-              <AccountCircleIcon color="secondary" className="dashboard-user-info-icon" />
-              <Typography>User 1</Typography>
-            </Box>
-            <Box className="blog-like-info">
-              <Image src={Like} alt="like" width={20} className="dashboard-user-like-icon" />
-              <Typography>2.5k</Typography>
-            </Box>
-          </Box>
-        </Box>
+        ))}
       </Box>
     </Box>
   );

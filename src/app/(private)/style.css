@@ -24,6 +24,18 @@
     margin-inline: 1rem;
     margin-bottom: 1rem;
   }
+  & .MuiOutlinedInput-root {
+    & fieldset {
+      border-color: #008ae6;
+    }
+    &:hover fieldset {
+      border-color: #008ae6;
+    }
+    &.Mui-focused fieldset {
+      border-color: #008ae6;
+    }
+    color: #008ae6;
+  }
 }
 
 .header-icons {

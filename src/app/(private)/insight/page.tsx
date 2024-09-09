@@ -6,6 +6,9 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DateField } from '@mui/x-date-pickers/DateField';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import {
   Chart as ChartJS,
   ArcElement,
@@ -120,13 +123,12 @@ function Insight(): React.ReactElement {
   ];
   return (
     <Box className="insight-root-container">
-      {/* <Typography>Insight</Typography> */}
       <Box className="date-container">
-        <Typography color="primary" variant="h6">
-          Date
-        </Typography>
-        <Typography>Select Date Range</Typography>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DateField size="small" className="select-date" />
+        </LocalizationProvider>
       </Box>
+
       <Box className="like-chart-container">
         <Typography color="primary" variant="h6">
           Liked By Category

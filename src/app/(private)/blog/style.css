@@ -23,7 +23,7 @@
 }
 
 .blog-icon-container {
-  border: 1px solid gray;
+  border: 1px solid #008ae6;
   border-radius: 0.3rem;
   display: flex;
   justify-content: center;
@@ -36,6 +36,18 @@
 
 .blog-select {
   min-width: 200px;
+  &.MuiOutlinedInput-root {
+    & fieldset {
+      border-color: #008ae6;
+    }
+    &:hover fieldset {
+      border-color: #008ae6;
+    }
+    &.Mui-focused fieldset {
+      border-color: #008ae6;
+    }
+    color: #008ae6;
+  }
 }
 
 .blog-actions {
@@ -45,6 +57,20 @@
 
 .blog-textfield {
   grid-row: 3;
+  & .MuiOutlinedInput-root {
+    & fieldset {
+      border-color: #008ae6;
+    }
+    &:hover fieldset {
+      border-color: #008ae6;
+    }
+    &.Mui-focused fieldset {
+      border-color: #008ae6;
+    }
+  }
+  & .MuiInputLabel-root {
+    color: #008ae6;
+  }
 }
 
 .blog-textfield .MuiOutlinedInput-root {
@@ -69,7 +95,7 @@
 }
 
 .blog-content-box {
-  border: 1px solid gray;
+  border: 1px solid #008ae6;
   border-radius: 4px;
   padding: 0.5rem;
   min-width: 200px;
