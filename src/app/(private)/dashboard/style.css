@@ -40,7 +40,7 @@
   grid-template-columns: auto 1fr;
   padding: 0.6rem;
   border: 1px solid #008ae6;
-  border-radius: 8px;
+  border-radius: 12px;
   gap: 0.5rem;
   width: fit-content;
   height: 100%;
@@ -58,7 +58,7 @@
   grid-column: span 2;
   object-fit: contain;
   width: 100%;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 12px 12px 0px 0px;
   block-size: auto;
 }
 

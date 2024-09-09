@@ -154,6 +154,9 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
             </IconButton>
           </Box>
         </MenuItem>
+        <MenuItem>
+          <Typography sx={{ paddingLeft: '0.2rem' }}>Logout</Typography>
+        </MenuItem>
       </Menu>
 
       <Box className="children-content">{children}</Box>

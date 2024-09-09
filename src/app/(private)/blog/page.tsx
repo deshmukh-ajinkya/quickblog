@@ -1,7 +1,6 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import DeleteIcon from '@mui/icons-material/Delete';
-import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import { Box, MenuItem, Select, TextField, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
@@ -62,7 +61,6 @@ function Blog(): React.ReactElement {
           </Box>
           <Box className="blog-actions">
             <AddBoxIcon color="primary" />
-            <NoteAltIcon color="primary" />
             <DeleteIcon color="primary" />
           </Box>
         </Box>
@@ -78,16 +76,24 @@ function Blog(): React.ReactElement {
         {blogData.map((blog) => (
           <Box key={blog.id} className="blog-content-box">
             <Image src={ReactImg} alt="Banner" className="blog-image" />
-            <Typography color="primary">{blog.title}</Typography>
-            <Typography color="primary">{blog.description}</Typography>
+            <Typography color="primary" className="blog-user-info-text">
+              {blog.title}
+            </Typography>
+            <Typography color="primary" className="blog-user-info-text">
+              {blog.description}
+            </Typography>
             <Box className="blog-info">
               <Box className="blog-user-info">
-                <AccountCircleIcon color="secondary" className="dashboard-user-info-icon" />
-                <Typography color="primary">{blog.user}</Typography>
+                <AccountCircleIcon color="secondary" className="blog-user-info-icon" />
+                <Typography color="primary" className="blog-user-info-text">
+                  {blog.user}
+                </Typography>
               </Box>
               <Box className="blog-like-info">
-                <Image src={Like} alt="like" width={20} className="dashboard-user-like-icon" />
-                <Typography color="primary">{blog.likes}</Typography>
+                <Image src={Like} alt="like" width={20} className="blog-user-like-icon" />
+                <Typography color="primary" className="blog-user-info-text">
+                  {blog.likes}
+                </Typography>
               </Box>
             </Box>
           </Box>
