@@ -8,17 +8,22 @@
   padding-right: 1rem;
 }
 
-.dashboard-heading {
-  align-content: center;
-  &.MuiTypography-root {
-    font-size: 24px;
-    color: #008ae6;
-  }
-}
-
 .dashboard-select-category {
   width: 200px;
   justify-self: right;
+  grid-column: 2/3;
+  &.MuiOutlinedInput-root {
+    & fieldset {
+      border-color: #008ae6;
+    }
+    &:hover fieldset {
+      border-color: #008ae6;
+    }
+    &.Mui-focused fieldset {
+      border-color: #008ae6;
+    }
+    color: #008ae6;
+  }
 }
 
 .dashboard-blog-container {
@@ -35,7 +40,7 @@
   grid-template-columns: auto 1fr;
   padding: 0.6rem;
   border: 1px solid #008ae6;
-  border-radius: 8px;
+  border-radius: 12px;
   gap: 0.5rem;
   width: fit-content;
   height: 100%;
@@ -53,7 +58,7 @@
   grid-column: span 2;
   object-fit: contain;
   width: 100%;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 12px 12px 0px 0px;
   block-size: auto;
 }
 
@@ -90,7 +95,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .dashboard-root-container {
     padding-inline: 1rem;
   }

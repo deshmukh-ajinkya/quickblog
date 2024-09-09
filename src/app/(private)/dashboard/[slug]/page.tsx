@@ -57,7 +57,7 @@ const BlogDetail: React.FC = () => {
         {data.title}
         <Box className="blog-content-like" onClick={() => setLiked(!liked)}>
           <Typography>{data.user.likes}</Typography>
-          {liked ? <ThumbUpOutlinedIcon fontSize="small" /> : <ThumbUpAltIcon fontSize="small" />}
+          {liked ? <ThumbUpAltIcon fontSize="small" /> : <ThumbUpOutlinedIcon fontSize="small" />}
         </Box>
       </Typography>
       <Typography className="blog-content-description" variant="h6">

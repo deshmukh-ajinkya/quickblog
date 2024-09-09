@@ -24,6 +24,18 @@
     margin-inline: 1rem;
     margin-bottom: 1rem;
   }
+  & .MuiOutlinedInput-root {
+    & fieldset {
+      border-color: #008ae6;
+    }
+    &:hover fieldset {
+      border-color: #008ae6;
+    }
+    &.Mui-focused fieldset {
+      border-color: #008ae6;
+    }
+    color: #008ae6;
+  }
 }
 
 .header-icons {
@@ -35,6 +47,12 @@
   align-items: center;
   margin: 1rem;
   cursor: pointer;
+}
+
+.user-profile-icon {
+  height: auto;
+  cursor: pointer;
+  width: 2rem;
 }
 
 .children-content {
@@ -58,14 +76,21 @@
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  padding: 0.2rem;
   align-items: center;
   :hover {
     cursor: pointer;
   }
 }
+.navigation-item-wrapper.selected {
+  background-color: rgba(0, 138, 230, 0.1);
+  border-radius: 4px;
+  padding: 0.2rem;
+  box-sizing: content-box;
+}
 
 /* Mobile View */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .private-root-container {
     display: grid;
     grid-template-rows: auto auto 1fr auto;
