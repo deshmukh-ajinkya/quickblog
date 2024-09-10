@@ -25,61 +25,73 @@ import Logo from '../../../public/icon.png';
 import User from '../../../public/user.png';
 import './style.css';
 
+// Define the private navigation paths with their titles, icons, and URLs
 const privatePaths = [
   { title: 'Explore', icon: WindowIcon, url: '/dashboard' },
   { title: 'Create', icon: NoteAltIcon, url: '/blog' },
   { title: 'Insight', icon: AssessmentIcon, url: '/insight' }
 ];
 
+// Private component to render navigation and user profile menu
 function Private({ children }: { children: React.ReactNode }): React.ReactNode {
-  const router = useRouter();
-  const pathname = usePathname();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [email, setEmail] = React.useState('user@example.com');
-  const [name, setName] = React.useState('John Doe');
+  const router = useRouter(); // Hook to programmatically navigate
+  const pathname = usePathname(); // Get the current pathname for navigation highlighting
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null); // State for menu anchor element
+  const [email, setEmail] = React.useState('user@example.com'); // State for user email
+  const [name, setName] = React.useState('John Doe'); // State for user name
   const [isEditing, setIsEditing] = useState<{ email: boolean; name: boolean }>({
     email: false,
     name: false
-  });
+  }); // State for tracking if editing mode is active
   const [selectedItem, setSelectedItem] = React.useState(() => {
+    // Determine the initially selected navigation item based on the current pathname
     const initialSelected = privatePaths.find((item) => item.url === pathname);
     return initialSelected?.title || 'Explore';
   });
 
+  // Handle navigation item click
   const handleNavigation = React.useCallback(
     (item: INavigationItem): void => {
-      setSelectedItem(item.title);
-      router.push(item.url);
+      setSelectedItem(item.title); // Set the selected item
+      router.push(item.url); // Navigate to the selected URL
     },
     [router]
   );
 
+  // Open the user profile menu
   const handleMenuOpen = (event: BaseSyntheticEvent): void => {
     setAnchorEl(event.currentTarget);
   };
 
+  // Close the user profile menu
   const handleMenuClose = (): void => {
     setAnchorEl(null);
   };
 
+  // Handle email input change
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setEmail(event.target.value);
   };
 
+  // Handle name input change
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setName(event.target.value);
   };
 
+  // Toggle between editing and viewing mode for profile fields
   const toggleEditMode = (field: 'email' | 'name'): void => {
     setIsEditing((prev) => ({ ...prev, [field]: !prev[field] }));
   };
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const theme = useTheme(); // Get the current theme for responsive design
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check if the viewport is mobile-sized
 
   return (
     <Box className="private-root-container">
+      {/* Logo image */}
       <Image src={Logo} alt="logo" className="header-logo-image" />
+
+      {/* Search input field */}
       <TextField
         placeholder="Search"
         size="small"
@@ -92,11 +104,14 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
         }}
         className="header-search-input"
       />
+
+      {/* Header icons including theme switcher and user profile icon */}
       <Box className="header-icons">
         <CustomTheme />
         <Image src={User} alt="user" onClick={handleMenuOpen} className="user-profile-icon" />
       </Box>
 
+      {/* User profile menu */}
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
@@ -108,6 +123,7 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
           }
         }}
         className="account-menu">
+        {/* Profile information */}
         <MenuItem className="profile-menu-items">
           <Box component="div" display="flex" alignItems="center" width="100%">
             <Image src={User} alt="user" className="profile-img" />
@@ -129,6 +145,8 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
             </IconButton>
           </Box>
         </MenuItem>
+
+        {/* Email information */}
         <MenuItem className="profile-menu-items">
           <Box component="div" display="flex" alignItems="center" width="100%">
             <MailIcon color="primary" className="mail-icon" />
@@ -148,12 +166,17 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
             </IconButton>
           </Box>
         </MenuItem>
+
+        {/* Logout option */}
         <MenuItem>
           <Typography className="logout-item">Logout</Typography>
         </MenuItem>
       </Menu>
 
+      {/* Main content area where children components are rendered */}
       <Box className="children-content">{children}</Box>
+
+      {/* Navigation items */}
       <Box className="navigation">
         {privatePaths.map((item, index) => (
           <Box

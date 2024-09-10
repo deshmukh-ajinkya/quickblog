@@ -24,6 +24,7 @@ import React from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 import '../insight/style.css';
 
+// Register Chart.js components for creating charts
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -35,6 +36,7 @@ ChartJS.register(
   PointElement
 );
 
+// Data for the Doughnut chart showing likes by category
 const data = {
   datasets: [
     {
@@ -46,6 +48,7 @@ const data = {
   ]
 };
 
+// Data for the Bar chart showing likes for different blogs
 const likeData = {
   labels: ['Blog 1', 'Blog 2', 'Blog 3'],
   datasets: [
@@ -60,6 +63,7 @@ const likeData = {
   ]
 };
 
+// Data for the Line chart showing visitor count over time
 const countData = {
   labels: ['Blog 1', 'Blog 2', 'Blog 3'],
   datasets: [
@@ -69,51 +73,57 @@ const countData = {
       backgroundColor: 'rgba(75,192,192,0.4)',
       borderColor: 'rgba(75,192,192,1)',
       borderWidth: 2,
-      tension: 0.1 // Add this line for a smooth line chart
+      tension: 0.1 // Smooths the line chart
     }
   ]
 };
 
+// Options for the Doughnut chart
 const doughnutOptions = {
   responsive: true,
   maintainAspectRatio: false
 };
 
+// Options for the Bar chart
 const barOptions = {
   responsive: true,
   maintainAspectRatio: false,
   scales: {
     x: {
       grid: {
-        display: false
+        display: false // Hides grid lines on the x-axis
       }
     },
     y: {
-      beginAtZero: true
+      beginAtZero: true // Ensures the y-axis starts at zero
     }
   }
 };
 
+// Options for the Line chart
 const lineOptions = {
   responsive: true,
   maintainAspectRatio: false,
   scales: {
     x: {
       grid: {
-        display: false
+        display: false // Hides grid lines on the x-axis
       }
     },
     y: {
-      beginAtZero: true
+      beginAtZero: true // Ensures the y-axis starts at zero
     }
   }
 };
 
+// Main component for displaying insights
 function Insight(): React.ReactElement {
+  // Function to create data for the table
   function createData(title: string, like: string): { title: string; like: string } {
     return { title, like };
   }
 
+  // Sample data for the table
   const rows = [
     createData('React.js', '2.5k'),
     createData('Node.Js', '5k'),
@@ -121,14 +131,17 @@ function Insight(): React.ReactElement {
     createData('Express.js', '5k'),
     createData('Nest.js', '5k')
   ];
+
   return (
     <Box className="insight-root-container">
+      {/* Date picker component */}
       <Box className="date-container">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateField size="small" className="select-date" />
         </LocalizationProvider>
       </Box>
 
+      {/* Doughnut chart showing likes by category */}
       <Box className="like-chart-container">
         <Typography color="primary" variant="h6">
           Liked By Category
@@ -137,6 +150,8 @@ function Insight(): React.ReactElement {
           <Doughnut data={data} options={doughnutOptions} />
         </Box>
       </Box>
+
+      {/* Table showing post overview */}
       <Box className="post-overview-container">
         <Typography color="primary" variant="h6">
           Post Overview
@@ -162,6 +177,8 @@ function Insight(): React.ReactElement {
           </Table>
         </TableContainer>
       </Box>
+
+      {/* Bar and Line charts showing blog insights */}
       <Box className="graph-container">
         <Typography color="primary" variant="h6">
           Most Liked Blog
@@ -179,4 +196,5 @@ function Insight(): React.ReactElement {
     </Box>
   );
 }
+
 export default Insight;

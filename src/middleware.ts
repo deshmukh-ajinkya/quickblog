@@ -6,7 +6,7 @@ import { checkRoutePaths } from './utils';
 import { handleRedirection } from './utils/middleware.utils';
 
 export function middleware(request: NextRequest): void | NextResponse {
-  const token = false;
+  const token = true;
   const { pathname } = request.nextUrl;
 
   return (
