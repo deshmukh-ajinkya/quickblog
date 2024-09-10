@@ -118,6 +118,7 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
         onClose={handleMenuClose}
         MenuListProps={{
           sx: {
+            minWidth: 230, // Fixed minimum width for the menu
             maxWidth: isMobile ? '100%' : 240,
             width: isMobile ? '100%' : 'auto'
           }
@@ -140,7 +141,10 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
                 {name}
               </Typography>
             )}
-            <IconButton onClick={() => toggleEditMode('name')} size="small">
+            <IconButton
+              onClick={() => toggleEditMode('name')}
+              size="small"
+              sx={{ marginLeft: 'auto' }}>
               <EditIcon fontSize="small" />
             </IconButton>
           </Box>
@@ -161,7 +165,10 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
             ) : (
               <Typography variant="body2">{email}</Typography>
             )}
-            <IconButton onClick={() => toggleEditMode('email')} size="small">
+            <IconButton
+              onClick={() => toggleEditMode('email')}
+              size="small"
+              sx={{ marginLeft: 'auto' }}>
               <EditIcon fontSize="small" />
             </IconButton>
           </Box>
