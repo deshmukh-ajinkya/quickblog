@@ -7,6 +7,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import GoogleIcon from '../../../../public/google.png';
 import Logo from '../../../../public/icon.png';
+import './style.css'; // Import plain CSS file
 
 function Login(): React.ReactElement {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,37 +17,15 @@ function Login(): React.ReactElement {
   };
 
   return (
-    <Box
-      sx={{
-        display: 'grid',
-        gridTemplateRows: 'auto',
-        gap: '0.5rem',
-        placeItems: 'center',
-        margin: 'auto',
-        minWidth: '250px',
-        height: 'auto',
-        padding: '1rem',
-        borderRadius: '0.5rem',
-        border: '1px solid #008AE6',
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)'
-      }}>
-      <Image
-        src={Logo}
-        alt="logo"
-        style={{ maxWidth: '8rem', height: 'auto', paddingBottom: '0.5rem' }}
-      />
+    <Box className="container">
+      <Image src={Logo} alt="logo" className="logo" />
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+      <Box className="input-container">
         <TextField size="small" placeholder="Email" fullWidth />
-        <Typography sx={{ color: 'red', fontSize: '0.75rem', visibility: 'hidden' }}>
-          Validation message
-        </Typography>
+        <Typography className="validation-message">Validation message</Typography>
       </Box>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+      <Box className="input-container">
         <TextField
           size="small"
           placeholder="Password"
@@ -66,45 +45,25 @@ function Login(): React.ReactElement {
             )
           }}
         />
-        <Typography sx={{ color: 'red', fontSize: '0.75rem', visibility: 'hidden' }}>
-          Validation Message
-        </Typography>
+        <Typography className="validation-message">Validation Message</Typography>
       </Box>
 
-      <Link href={'/reset'} style={{ fontSize: '0.8rem', color: '#008AE6', padding: 0 }}>
+      <Link href={'/reset'} className="link">
         Forget Password
       </Link>
 
-      <Button
-        variant="contained"
-        color="primary"
-        size="medium"
-        sx={{
-          textTransform: 'capitalize',
-          width: '100%',
-          fontSize: '0.7rem'
-        }}>
+      <Button variant="contained" color="primary" size="medium" className="button">
         Login
       </Button>
 
-      <Typography>or</Typography>
+      <Typography className="or-text">or</Typography>
 
-      <Button
-        variant="contained"
-        color="primary"
-        size="medium"
-        sx={{
-          textTransform: 'none',
-          width: '100%',
-          fontSize: '0.7rem',
-          display: 'flex',
-          gap: '0.5rem'
-        }}>
+      <Button variant="contained" color="primary" size="medium" className="google-button">
         <Image src={GoogleIcon} alt="google-icon" width={24} style={{ borderRadius: '24px' }} />
         SignIn with Google
       </Button>
 
-      <Link href={'/register'} style={{ fontSize: '0.8rem', color: '#008AE6' }}>
+      <Link href={'/register'} className="link">
         Dont have an account? Register
       </Link>
     </Box>

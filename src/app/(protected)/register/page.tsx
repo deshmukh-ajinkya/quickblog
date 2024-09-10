@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Logo from '../../../../public/icon.png';
+import './style.css'; // Import the plain CSS file
 
 function PasswordField({
   label,
@@ -17,7 +18,7 @@ function PasswordField({
   handleClickShowPassword: () => void;
 }): React.ReactElement {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+    <Box className="input-container">
       <TextField
         size="small"
         type={showPassword ? 'text' : 'password'}
@@ -37,9 +38,7 @@ function PasswordField({
           )
         }}
       />
-      <Typography sx={{ color: 'red', fontSize: '0.75rem', visibility: 'hidden' }}>
-        Validation message
-      </Typography>
+      <Typography className="validation-message">Validation message</Typography>
     </Box>
   );
 }
@@ -49,41 +48,17 @@ function Register(): React.ReactElement {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <Box
-      sx={{
-        display: 'grid',
-        gridTemplateRows: 'auto 36px auto 36px auto 36px auto',
-        gap: '1rem',
-        placeItems: 'center',
-        margin: 'auto',
-        minWidth: '250px',
-        height: 'fit-content',
-        padding: '1rem',
-        borderRadius: '0.5rem',
-        border: '1px solid #008AE6',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)'
-      }}>
-      <Image
-        src={Logo}
-        alt="logo"
-        style={{ maxWidth: '8rem', height: 'auto', paddingBottom: '0.5rem' }}
-      />
+    <Box className="register-container">
+      <Image src={Logo} alt="logo" className="register-logo" />
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+      <Box className="input-container">
         <TextField size="small" placeholder="Full Name" fullWidth />
-        <Typography sx={{ color: 'red', fontSize: '0.75rem', visibility: 'hidden' }}>
-          Validation message
-        </Typography>
+        <Typography className="validation-message">Validation message</Typography>
       </Box>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+      <Box className="input-container">
         <TextField size="small" placeholder="Email" fullWidth />
-        <Typography sx={{ color: 'red', fontSize: '0.75rem', visibility: 'hidden' }}>
-          Validation Message
-        </Typography>
+        <Typography className="validation-message">Validation Message</Typography>
       </Box>
 
       <PasswordField
@@ -97,15 +72,11 @@ function Register(): React.ReactElement {
         handleClickShowPassword={() => setShowConfirmPassword((prev) => !prev)}
       />
 
-      <Button
-        variant="contained"
-        color="primary"
-        size="medium"
-        sx={{ textTransform: 'capitalize', width: '100%', fontSize: '0.7rem' }}>
+      <Button variant="contained" color="primary" size="medium" className="register-button">
         Register
       </Button>
 
-      <Link href={'/login'} style={{ fontSize: '0.8rem', color: '#008AE6' }}>
+      <Link href={'/login'} className="register-link">
         Already have an account? Login
       </Link>
     </Box>

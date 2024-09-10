@@ -10,32 +10,42 @@ import React, { useEffect, useRef } from 'react';
 import { blogData } from '@/mock/blogData';
 import './style.css';
 
+// Functional component for displaying blog details
 const BlogDetail: React.FC = () => {
+  // Extracting slug parameter from URL
   const { slug } = useParams();
+
+  // State variables for managing like status, comment input, and comments
   const [liked, setLiked] = React.useState(false);
   const [comment, setComment] = React.useState('');
   const [comments, setComments] = React.useState<{ sender: string; text: string }[]>([]);
 
+  // Ref to scroll to the end of the comments section
   const commentsEndRef = useRef<HTMLDivElement>(null);
 
+  // Finding the blog data based on the slug
   const data = blogData.find((blog) => blog.title.toLowerCase().replace(/\s+/g, '-') === slug);
 
+  // Scroll to the end of the comments section when a new comment is added
   useEffect(() => {
     if (commentsEndRef.current) {
       commentsEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [comments]);
 
+  // Return a message if the blog is not found
   if (!data) {
     return <Typography variant="h4">Blog not found</Typography>;
   }
 
+  // Function to handle sending a comment
   const handleSendComment = (): void => {
     if (comment.trim()) {
+      // Add the new comment to the list of comments
       setComments((prevComments) => [...prevComments, { sender: 'You', text: comment }]);
       setComment('');
 
-      // Instead of immediate update, you could handle it differently if needed
+      // Simulate receiving a reply after a delay
       setTimeout(() => {
         setComments((prevComments) => [
           ...prevComments,
@@ -45,6 +55,7 @@ const BlogDetail: React.FC = () => {
     }
   };
 
+  // Function to handle 'Enter' key press for sending comments
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>): void => {
     if (event.key === 'Enter') {
       handleSendComment();
@@ -65,19 +76,20 @@ const BlogDetail: React.FC = () => {
       </Typography>
       <Box className="blog-content-comment">
         <Box className="comments">
+          {/* Displaying each comment */}
           {comments.map((msg, index) => (
             <Box
               key={index}
               className={msg.sender === 'You' ? 'sender-comment' : 'receiver-comment'}>
-              <Box className="sender-comment-info" sx={{ textAlign: 'center', lineHeight: 0 }}>
+              <Box className="sender-comment-info">
                 <AccountCircleIcon color="secondary" fontSize="small" />
                 <Typography className="sender-name-text">{msg.sender}</Typography>
               </Box>
               <Typography className="sender-text">{msg.text}</Typography>
             </Box>
           ))}
-          {/* This is the element we scroll to */}
-          <div ref={commentsEndRef} />
+          {/* Ref to scroll to the end of comments */}
+          <Box component={'div'} ref={commentsEndRef} />
         </Box>
         <TextField
           className="comment-input"
@@ -85,7 +97,7 @@ const BlogDetail: React.FC = () => {
           size="small"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          onKeyDown={handleKeyDown} // Add onKeyDown handler
+          onKeyDown={handleKeyDown}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

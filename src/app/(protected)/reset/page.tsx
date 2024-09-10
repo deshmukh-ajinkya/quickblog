@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Logo from '../../../../public/icon.png';
+import './style.css'; // Import the plain CSS file
 
 const steps = ['Enter Email', 'Enter OTP', 'Set New Password'];
 
@@ -70,38 +71,20 @@ function Reset(): React.ReactElement {
   };
 
   return (
-    <Box
-      sx={{
-        display: 'grid',
-        gridTemplateRows: 'auto 36px auto 36px fit-content',
-        gap: '0.5rem',
-        placeItems: 'center',
-        margin: 'auto',
-        minWidth: '250px',
-        height: 'fit-content',
-        padding: '1rem',
-        borderRadius: '0.5rem',
-        border: '1px solid #008AE6',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)'
-      }}>
-      <Image src={Logo} alt="logo" style={{ maxWidth: '8rem', height: 'auto' }} />
+    <Box className="reset-container">
+      <Image src={Logo} alt="logo" className="reset-logo" />
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+      <Box className="input-container">
         {renderStepContent()}
-        <Typography sx={{ color: 'red', fontSize: '0.75rem', visibility: 'hidden' }}>
-          Validation message
-        </Typography>
+        <Typography className="validation-message">Validation message</Typography>
       </Box>
 
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+      <Box className="button-container">
         {activeStep > 0 && (
           <Button
             variant="contained"
             size="small"
-            sx={{ textTransform: 'capitalize', fontSize: '0.7rem', justifySelf: 'center' }}
+            className="reset-button"
             onClick={() => handleStepChange('back')}>
             Back
           </Button>
@@ -110,13 +93,13 @@ function Reset(): React.ReactElement {
           variant="contained"
           color="primary"
           size="small"
-          sx={{ textTransform: 'capitalize', fontSize: '0.7rem', justifySelf: 'center' }}
+          className="reset-button"
           onClick={handleSubmit}>
           {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
         </Button>
       </Box>
 
-      <Link href="/login" style={{ fontSize: '0.8rem', color: '#008AE6' }}>
+      <Link href="/login" className="reset-link">
         Back to login
       </Link>
     </Box>

@@ -89,6 +89,28 @@
   box-sizing: content-box;
 }
 
+.mail-icon {
+  margin-right: 1rem;
+}
+
+.profile-email {
+  width: 150;
+}
+
+.profile-img {
+  width: 24px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.profile-menu-items {
+  cursor: pointer;
+}
+
+.logout-item {
+  padding-left: 0.2rem;
+}
+
 /* Mobile View */
 @media (max-width: 900px) {
   .private-root-container {

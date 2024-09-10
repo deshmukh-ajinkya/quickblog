@@ -1,0 +1,56 @@
+/* style.css */
+
+/* Container for the Register component */
+.register-container {
+  display: grid;
+  grid-template-rows: auto 36px auto 36px auto 36px auto;
+  gap: 1rem;
+  place-items: center;
+  margin: auto;
+  min-width: 250px;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #008ae6;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Logo styling */
+.register-logo {
+  max-width: 8rem;
+  height: auto;
+  padding-bottom: 0.5rem;
+}
+
+/* Container for each input field */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Styling for validation messages */
+.validation-message {
+  color: red;
+  font-size: 0.75rem;
+  visibility: hidden;
+}
+
+/* Styling for buttons */
+.register-button {
+  &.MuiButton-root {
+    text-transform: capitalize;
+    width: 100%;
+    font-size: 0.7rem;
+  }
+}
+
+/* Styling for links */
+.register-link {
+  font-size: 0.8rem;
+  color: #008ae6;
+  text-decoration: none;
+}
