@@ -1,0 +1,65 @@
+/* Login.css */
+.container {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 0.5rem;
+  place-items: center;
+  margin: auto;
+  min-width: 250px;
+  height: auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #008ae6;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  max-width: 8rem;
+  height: auto;
+  padding-bottom: 0.5rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.validation-message {
+  color: red;
+  font-size: 0.75rem;
+  visibility: hidden;
+}
+
+.link {
+  font-size: 0.8rem;
+  color: #008ae6;
+  padding: 0;
+  text-decoration: none;
+}
+
+.button {
+  &.MuiButton-root {
+    text-transform: capitalize;
+    width: 100%;
+    font-size: 0.7rem;
+  }
+}
+
+.or-text {
+  text-align: center;
+}
+
+.google-button {
+  &.MuiButton-root {
+    text-transform: none;
+    width: 100%;
+    font-size: 0.7rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}
