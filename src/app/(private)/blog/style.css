@@ -133,6 +133,17 @@
   }
 }
 
+.blog-user-info-description {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.MuiTypography-root {
+    font-size: 12px;
+  }
+}
+
 @media (width <= 900px) {
   .blog-root-container {
     grid-template-columns: 1fr;

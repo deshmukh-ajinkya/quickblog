@@ -108,23 +108,19 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
           }
         }}
         className="account-menu">
-        <MenuItem sx={{ cursor: 'pointer' }}>
+        <MenuItem className="profile-menu-items">
           <Box component="div" display="flex" alignItems="center" width="100%">
-            <Image
-              src={User}
-              alt="user"
-              style={{ width: '24px', height: 'auto', marginRight: '1rem' }}
-            />
+            <Image src={User} alt="user" className="profile-img" />
             {isEditing.name ? (
               <TextField
                 value={name}
                 onChange={handleNameChange}
                 size="small"
                 variant="outlined"
-                sx={{ width: 150 }}
+                className="profile-email"
               />
             ) : (
-              <Typography variant="body2" component="span" sx={{ fontWeight: 'bold', width: 150 }}>
+              <Typography variant="body2" component="span">
                 {name}
               </Typography>
             )}
@@ -133,21 +129,19 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
             </IconButton>
           </Box>
         </MenuItem>
-        <MenuItem sx={{ cursor: 'pointer' }}>
+        <MenuItem className="profile-menu-items">
           <Box component="div" display="flex" alignItems="center" width="100%">
-            <MailIcon color="primary" sx={{ marginRight: '1rem' }} />
+            <MailIcon color="primary" className="mail-icon" />
             {isEditing.email ? (
               <TextField
                 value={email}
                 onChange={handleEmailChange}
                 size="small"
                 variant="outlined"
-                sx={{ width: 150 }}
+                className="profile-email"
               />
             ) : (
-              <Typography variant="body2" component="span" sx={{ fontWeight: 'bold', width: 150 }}>
-                {email}
-              </Typography>
+              <Typography variant="body2">{email}</Typography>
             )}
             <IconButton onClick={() => toggleEditMode('email')} size="small">
               <EditIcon fontSize="small" />
@@ -155,7 +149,7 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
           </Box>
         </MenuItem>
         <MenuItem>
-          <Typography sx={{ paddingLeft: '0.2rem' }}>Logout</Typography>
+          <Typography className="logout-item">Logout</Typography>
         </MenuItem>
       </Menu>
 

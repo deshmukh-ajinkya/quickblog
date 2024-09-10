@@ -86,6 +86,11 @@
   }
 }
 
+.sender-comment-info {
+  text-align: center;
+  line-height: 0;
+}
+
 .comment-input {
   margin-top: 0.5rem;
   padding: 0.5rem;
@@ -93,7 +98,7 @@
   border-radius: 5px;
   & .MuiInputBase-root {
     font-size: small;
-    height: 1.5rem;
+    height: 2rem;
     display: flex;
     align-items: center;
   }

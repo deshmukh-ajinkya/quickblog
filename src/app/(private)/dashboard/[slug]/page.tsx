@@ -35,7 +35,6 @@ const BlogDetail: React.FC = () => {
       setComments((prevComments) => [...prevComments, { sender: 'You', text: comment }]);
       setComment('');
 
-      // Instead of immediate update, you could handle it differently if needed
       setTimeout(() => {
         setComments((prevComments) => [
           ...prevComments,
@@ -69,15 +68,14 @@ const BlogDetail: React.FC = () => {
             <Box
               key={index}
               className={msg.sender === 'You' ? 'sender-comment' : 'receiver-comment'}>
-              <Box className="sender-comment-info" sx={{ textAlign: 'center', lineHeight: 0 }}>
+              <Box className="sender-comment-info">
                 <AccountCircleIcon color="secondary" fontSize="small" />
                 <Typography className="sender-name-text">{msg.sender}</Typography>
               </Box>
               <Typography className="sender-text">{msg.text}</Typography>
             </Box>
           ))}
-          {/* This is the element we scroll to */}
-          <div ref={commentsEndRef} />
+          <Box component={'div'} ref={commentsEndRef} />
         </Box>
         <TextField
           className="comment-input"
@@ -85,7 +83,7 @@ const BlogDetail: React.FC = () => {
           size="small"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          onKeyDown={handleKeyDown} // Add onKeyDown handler
+          onKeyDown={handleKeyDown}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

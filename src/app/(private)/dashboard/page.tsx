@@ -40,6 +40,7 @@ function Dashboard(): React.ReactNode {
               className="dashboard-blog-img"
             />
             <Typography className="dashboard-blog-title">{blog.title}</Typography>
+            <Typography className="dashboard-blog-description">{blog.description}</Typography>
             <Box className="dashboard-blog-user-info">
               <AccountCircleIcon color="secondary" className="dashboard-user-info-icon" />
               <Typography className="dashboard-user-info-title">{blog.user.name}</Typography>
