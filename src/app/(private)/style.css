@@ -53,6 +53,7 @@
   height: auto;
   cursor: pointer;
   width: 2rem;
+  aspect-ratio: 1/1;
 }
 
 .children-content {
