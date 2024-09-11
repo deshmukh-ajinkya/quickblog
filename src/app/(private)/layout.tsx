@@ -16,9 +16,9 @@ import {
   useTheme,
   IconButton
 } from '@mui/material';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
-import React, { BaseSyntheticEvent, ChangeEvent, useState } from 'react';
+import React, { BaseSyntheticEvent, ChangeEvent, useRef, useState } from 'react';
 import { CustomTheme } from '@/components';
 import { INavigationItem } from '@/interface';
 import Logo from '../../../public/icon.png';
@@ -85,7 +85,21 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
 
   const theme = useTheme(); // Get the current theme for responsive design
   const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check if the viewport is mobile-sized
+  const inputRef = useRef<HTMLInputElement | null>(null); // Ensure the ref is typed as an HTMLInputElement
+  const [imagePreview, setImagePreview] = useState<string | StaticImageData>(User);
 
+  const handleImageClick = (): void => {
+    // Trigger the hidden file input click
+    inputRef.current!.click();
+  };
+
+  const handleFileChange = (event: BaseSyntheticEvent): void => {
+    const file = event.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file); // Create a preview URL
+      setImagePreview(imageUrl); // Update the image source with the new file    }
+    }
+  };
   return (
     <Box className="private-root-container">
       {/* Logo image */}
@@ -127,7 +141,25 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
         {/* Profile information */}
         <MenuItem className="profile-menu-items">
           <Box component="div" display="flex" alignItems="center" width="100%">
-            <Image src={User} alt="user" className="profile-img" />
+            {/* Dynamic Image Component */}
+            <Image
+              src={imagePreview} // The image preview will update when a new file is selected
+              alt="user"
+              className="profile-img"
+              onClick={handleImageClick}
+              width={150} // Example width
+              height={150} // Example height
+            />
+
+            {/* Hidden file input */}
+            <Box
+              component="input"
+              type="file"
+              hidden
+              ref={inputRef} // Reference to trigger the file input
+              onChange={handleFileChange} // Handle file input change
+              accept="image/*" // Accept only image files
+            />
             {isEditing.name ? (
               <TextField
                 value={name}

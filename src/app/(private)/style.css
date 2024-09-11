@@ -101,6 +101,9 @@
   width: 24px;
   height: auto;
   margin-right: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
 }
 
 .profile-menu-items {
