@@ -140,7 +140,7 @@
   text-overflow: ellipsis;
 
   &.MuiTypography-root {
-    font-size: 12px;
+    font-size: 0.6rem;
   }
 }
 
