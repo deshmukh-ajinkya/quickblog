@@ -75,7 +75,7 @@
   text-overflow: ellipsis;
   font-size: small;
   &.MuiTypography-root {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 }
 .dashboard-blog-user-info {
@@ -115,7 +115,7 @@
   }
   .dashboard-blog-title {
     &.MuiTypography-root {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
     }
   }
   .dashboard-blog-container {
