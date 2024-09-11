@@ -122,7 +122,14 @@ function Private({ children }: { children: React.ReactNode }): React.ReactNode {
       {/* Header icons including theme switcher and user profile icon */}
       <Box className="header-icons">
         <CustomTheme />
-        <Image src={User} alt="user" onClick={handleMenuOpen} className="user-profile-icon" />
+        <Image
+          src={imagePreview}
+          width={200}
+          height={200}
+          alt="user"
+          onClick={handleMenuOpen}
+          className="user-profile-icon"
+        />
       </Box>
 
       {/* User profile menu */}
